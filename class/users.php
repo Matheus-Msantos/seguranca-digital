@@ -28,13 +28,7 @@ class User {
     //CREATE
 
     public function createUser() {
-        $sqlQuery = 'INSERT INTO' . $this->db_table . '
-            SET 
-                nome = :nome, 
-                nascimento = :nascimento,
-                telefone = :telefone
-            '
-        ;
+        $sqlQuery = 'INSERT INTO ' . $this->db_table . ' (nome, nascimento, telefone) VALUES( :nome, :nascimento, :telefone)';
 
         $stmt = $this->conn->prepare( $sqlQuery );
 
@@ -84,15 +78,7 @@ class User {
     //UPDATE
 
     public function updateUser() {
-        $sqlQuery = 'UPDATE' . $this->db_table . '
-            SET 
-                nome = :nome, 
-                nascimento = :nascimento,
-                telefone = :telefone
-            WHERE
-                id = :id
-            '
-        ;
+        $sqlQuery = 'UPDATE ' . $this->db_table . ' SET nome = :nome, nascimento = :nascimento, telefone = :telefone WHERE id = :id';
 
         $stmt = $this->conn->prepare( $sqlQuery );
 
@@ -100,6 +86,7 @@ class User {
         $this->nome = htmlspecialchars( strip_tags( $this->nome ) );
         $this->nascimento = htmlspecialchars( strip_tags( $this->nascimento ) );
         $this->telefone = htmlspecialchars( strip_tags( $this->telefone ) );
+        $this->id = htmlspecialchars( strip_tags( $this->id ) );
 
         // bind data
         $stmt->bindParam( ':nome', $this->nome );
@@ -107,6 +94,8 @@ class User {
         $stmt->bindParam( ':nascimento', $this->nascimento );
 
         $stmt->bindParam( ':telefone', $this->telefone );
+
+        $stmt->bindParam( ':id', $this->id );
 
         if ( $stmt->execute() ) {
             return true;
