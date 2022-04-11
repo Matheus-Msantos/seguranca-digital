@@ -1,0 +1,179 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+
+header {
+    background: #CCD1D1;
+    padding: 25px 0;
+    box-shadow: 1px 2px 15px black;
+    margin-bottom: 100px;
+}
+
+header h1{
+    color: #3498DB;
+    margin: 0;
+    text-align: center;
+    font-size: 37px;
+    font-weight: 800;
+
+}
+
+.list-user-conteiner {
+    max-width: 50%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+    margin-top: 28px;
+}
+ 
+
+p {
+    color: #212121;
+    font-weight: 500;
+    font-size: 17px;
+    border-bottom: 1px solid #cecece;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    padding-right: 70px;
+    padding-left: 20px;
+
+}
+
+#list-user-edit,
+#list-user-remove,
+#list-user-delete{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#list-user-edit button,
+#list-user-remove button,
+#list-user-delete button {
+    color: #212121;
+    font-weight: 500;
+    font-size: 17px;
+    background: transparent;
+    border: 0;
+    border-bottom: 1px solid #cecece;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    padding-right: 20px;
+    padding-left: 20px;
+    cursor: pointer;
+}
+
+#list-user-edit button:hover,
+#list-user-remove button:hover,
+#list-user-delete button:hover {
+    color: #3498DB;
+    
+}
+
+#list-user-button {
+    display: none;
+    position: absolute;
+    color: #3498DB;
+    font-size: 30px;
+    background: transparent;
+    border: 0;
+    left: 20%;
+    cursor: pointer;
+}
+
+#list-user-button:hover {
+    color: #212121;
+}
+
+#openFormCreate {
+    position: absolute;
+    width: 65px;
+    height: 65px;
+    font-size: 30px;
+    background: #3498DB;
+    border: 0;
+    border-radius: 50%;
+    cursor: pointer;
+    right: 55px;
+    bottom: 50px;
+}
+
+#list-user-button.is--active {
+    display: block;
+}
+
+#container-edit-user {
+    display: none;
+}
+
+#container-edit-user.is--active,
+#create-user-container.is--active {
+    display: block;
+    width: 50%;
+    margin: 0 auto;
+}
+
+#container-edit-user form,
+#create-user-container form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#container-edit-user input ,
+#create-user-container input {
+   width: 40%;
+   height: 56px;
+   padding: 0 15px;
+   border: 2px solid #cecece;
+   border-radius: 46px;
+   margin-bottom: 24px;
+   outline: none;
+   color: #212121;
+   font-size: 17px;
+}
+
+#container-edit-user button,
+#create-user-container button {
+   width: 176px;
+    height: 48px;
+    color: #212121;
+    font-weight: 600;
+    font-size: 16px;
+    border: 0;
+    border-radius: 46px;
+    background: #3498DB;
+    margin: 0 auto;
+    cursor: pointer;
+}
+
+#container-edit-user button:hover,
+#create-user-container button:hover {
+   width: 176px;
+    height: 48px;
+    color: #239B56;
+    font-weight: 600;
+    font-size: 16px;
+    border: 1px solid #212121;
+    border-radius: 46px;
+    background: #fff;
+    margin: 0 auto;
+    cursor: pointer;
+}
+
+
+#create-user-container {
+    display: none;
+}
+
+#list-user-conteiner.is--none,
+#container-edit-user.is--none {
+    display: none;
+}

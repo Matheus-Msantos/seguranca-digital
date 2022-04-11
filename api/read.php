@@ -9,30 +9,19 @@ $database = new Database();
 $db = $database->getConnection();
 $items = new User( $db );
 $stmt = $items->getUsers();
-$itemCount = $stmt->rowCount();
 
-echo json_encode( $itemCount );
+$userArr = array();
+$userArr[ 'body' ] = array();
 
-if ( $itemCount > 0 ) {
-    $userArr = array();
-    $userArr[ 'body' ] = array();
-    $userArr[ 'itemCount' ] = $itemCount;
-
-    while( $row = $stmt->fetch( PDO::FETCH_ASSOC ) ) {
-        extract( $row );
-        $e = array(
-            'id' => $id,
-            'nome' => $nome,
-            'nascimento' => $nascimento,
-            'telefone' => $telefone
-        );
-
-        array_push( $userArr[ 'body' ], $e );
-    }
-    echo json_encode( $userArr );
-} else {
-    http_response_code( 404 );
-    echo json_encode(
-        array( 'menssage' => 'Página não encontrada' )
+while( $row = $stmt->fetch( PDO::FETCH_ASSOC ) ) {
+    extract( $row );
+    $e = array(
+        'id' => $id,
+        'nome' => $nome,
+        'nascimento' => $nascimento,
+        'telefone' => $telefone
     );
+
+    array_push( $userArr[ 'body' ], $e );
 }
+echo json_encode( $userArr );
